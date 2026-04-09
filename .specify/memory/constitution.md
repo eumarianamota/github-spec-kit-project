@@ -1,50 +1,40 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Project Constitution
+
+## Purpose
+This document declares the project-wide principles for code quality, UX, responsiveness, and dependency management. It also records the required framework versions for this repository and a non-negotiable constraint regarding testing.
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+- **Clean Code:** Favor clarity over cleverness. Write self-explanatory functions, small components, and deliberate naming. Keep functions/components single-responsibility, avoid deep nesting, and prefer composition over inheritance. Prefer explicitness: small, well-named abstractions beat generic frameworks.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+- **Simple UX:** Design for the common path first. Reduce cognitive load: clear affordances, predictable patterns, accessible defaults, and minimal configuration. Use progressive disclosure for advanced features and prefer clear microcopy over modals or complex flows.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+- **Responsive Design:** Mobile-first layouts, fluid grids, and utility-first responsive rules. Visual hierarchy must adapt across breakpoints; touch targets, spacing, and typography scale appropriately. Test layouts at common viewport sizes manually during design reviews.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+- **Minimal Dependencies:** Add libraries only when they clearly reduce long-term maintenance or add essential capability. Prefer platform-provided APIs and small, well-maintained packages. Evaluate trade-offs for bundle size, maintenance burden, and security surface.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+## Non-negotiable Constraint
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+- **No Automated Tests Allowed:** Under this constitution, absolutely no automated testing is to be added or required for this project — this includes unit tests, integration tests, and end-to-end tests. This rule supersedes any other guidance in this document.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Technology Versions (from package.json)
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- **Next.js:** 16.2.2
+- **React:** 19.2.4 (react-dom: 19.2.4)
+- **Tailwind CSS:** ^4 (devDependency `tailwindcss`)
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+These versions are authoritative for the project and should be used when scaffolding or upgrading features.
+
+## Development Guidance
+
+- Keep pages and components small and focused. Break large pages into composable components.
+- Use Tailwind utility classes for rapid, consistent styling and to keep CSS surface minimal.
+- Prefer server-side rendering or hybrid rendering (Next.js patterns) for content-critical pages; keep client-side state localized and minimal.
+- Document non-obvious decisions in short README sections adjacent to major modules.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution supersedes informal practices. Amendments require a documented rationale and an explicit ratification date.
+- Compliance checks are manual: reviewers should ensure PRs follow these principles (except the testing prohibition, which is absolute).
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-04-08 | **Last Amended**: 2026-04-08
